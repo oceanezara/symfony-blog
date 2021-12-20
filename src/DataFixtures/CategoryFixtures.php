@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class CategoryFixtures extends Fixture
 {
-    public const ACTION = "Horreur";
+    public const HORREUR = "Horreur";
     public const CATEGORIES =['Action', 'Aventures', 'Animation', 'Fantastique', 'Horreur',];
     public function load(ObjectManager $manager)
     {
@@ -21,6 +21,6 @@ class CategoryFixtures extends Fixture
         $manager->flush();
 
         // other fixtures can get this object using the UserFixtures::ADMIN_USER_REFERENCE constant
-        $this->addReference(self::ACTION, $category);
+        $this->addReference(self::HORREUR, $category);
     }
 }

@@ -7,15 +7,16 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class PostFixture extends Fixture implements DependentFixtureInterface
+class PostFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
         // $product = new Product();
         // $manager->persist($product);
 
-        $post = new Post('New Article');
-        $post->setCategory($this->getReference(CategoryFixtures::ACTION));
+        $post = new Post();
+        $post->setName('New Article')
+            ->setCategory($this->getReference(CategoryFixtures::HORREUR));
         $manager->persist($post);
 
 
