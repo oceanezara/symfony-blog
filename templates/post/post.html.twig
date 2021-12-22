@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+
+<h1 class="post-head">Liste des articles</h1>
+    
+    <div class="container">
+        <div class="row">
+            
+                {% for post in post %}
+                <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://placedog.net/640/480?random" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.name }}</h5>
+                    <p>{{ post.id }}</p>
+
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                </div>
+                </div>
+                {% endfor %}
+            
+        </div>
+    </div>
+    <div class="navigation">
+    {{ knp_pagination_render(post) }}
+</div>
+ 
+
+{% endblock %}
